@@ -208,6 +208,7 @@ input[type="submit"]:hover {
   -moz-transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
+  transition: all 150ms ease-in;
 }
 
 
@@ -460,13 +461,14 @@ input[type="submit"]:hover {
 
 $(document).ready(function(){
 
+
+
     $("#down").on('click', function() { 
 
         $('html, body').animate({scrollTop: $('#stop-div-1').offset().top }, 750);
         $('html, body').delay(1500).animate({scrollTop: $('#stop-div-2').offset().top }, 750);
         $('html, body').delay(1000).animate({scrollTop: $('#stop-div-4').offset().top }, 1000);
         $('html, body').delay(1250).animate({scrollTop: $('#stop-div-3').offset().top }, 750);
-
 
     });
 
