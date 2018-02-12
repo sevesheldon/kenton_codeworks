@@ -139,14 +139,16 @@ a:hover .bottom:after, a:hover .top:after {
     margin-top: 5em;
 }
 
-#thank-you {
-    margin: 22em 0 15em;
+#email a {
+    text-decoration: none;
 }
+
 
 /* FORM */
 
 form {
     width: 65%;
+    max-width: 800px;
 }
 
 input[type="text"] {
@@ -185,6 +187,13 @@ input[type="submit"]:hover {
     transition: all 150ms ease-in;
 }
 
+/* THANK-YOU */
+
+#thank-you {
+    margin: 22em 0 10em;
+    height: auto;
+    min-height: auto;
+}
 
 /* FOOTER AREA */
 
@@ -213,8 +222,26 @@ input[type="submit"]:hover {
 
 
 .copyright {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
+
+
+#myProgress {
+  width: 100%;
+  background-color: #ddd;
+  position: fixed;
+  bottom: 0;
+}
+
+#myBar {
+  width: 1%;
+  height: 15px;
+  background-color: black;
+}
+
+
+
+
 
 /* MEDIA QUERIES */
 
@@ -343,20 +370,44 @@ input[type="submit"]:hover {
         <h1>Codeworks</h1>
 
         <div id="down">
-            <a href="#">
+            <a href="#" onclick="move()">
               <span class="bottom"></span>
             </a>
         </div>
 
     </div>
 
+    <div id="myProgress">
+        <div id="myBar"></div>
+    </div>
+
 
     <div id="stop-div-1" class="stop-div"><br></div>
 
-        <div id="blurb-text-1" class="text-class">
+        <div id="blurb-text-1" class="text-class" style="width: 80%; margin: 0 auto;">
 
-            <h1 style="width: 80%;">A team of developers trying to make the internet better</h1 style="width: 80%;">
+            <h1>A team of developers trying to make the internet better</h1>
             <!-- <h4>As we pool our resources, experience and expertise... </h4> -->
+
+    </div>
+
+    <div id="stop-div-clients" class="stop-div"><br></div>
+
+    <div id="clients" class="text-class" style="width: 80%; margin: 0 auto;">
+
+        <h1>Our clients include</h1>
+        <br>
+        <h2>Designers + marketers + consultants + copywriters + individuals + more</h2>
+
+    </div>
+
+    <div id="stop-div-webuild" class="stop-div"><br></div>
+
+    <div id="webuild" class="text-class" style="width: 80%; margin: 0 auto;">
+
+        <h1>Websites</h1>
+        <h1>+</h1>
+        <h1>beyond</h1>
 
     </div>
 
@@ -459,22 +510,38 @@ input[type="submit"]:hover {
 //     }
 // });
 
+function move() {
+  var elem = document.getElementById("myBar");   
+  var width = 1;
+  var id = setInterval(frame, 118);
+  function frame() {
+    if (width >= 100) {
+      clearInterval(id);
+    } else {
+      width++; 
+      elem.style.width = width + '%'; 
+    }
+  }
+}
+
+
 $(document).ready(function(){
 
 
-
-    $("#down").on('click', function() { 
+    $("#down a").on('click', function() { 
 
         $('html, body').animate({scrollTop: $('#stop-div-1').offset().top }, 750);
-        $('html, body').delay(1500).animate({scrollTop: $('#stop-div-2').offset().top }, 750);
-        $('html, body').delay(1000).animate({scrollTop: $('#stop-div-4').offset().top }, 1000);
+        $('html, body').delay(1500).animate({scrollTop: $('#stop-div-clients').offset().top }, 750);
+        $('html, body').delay(1750).animate({scrollTop: $('#stop-div-webuild').offset().top }, 750);        
+        $('html, body').delay(1250).animate({scrollTop: $('#stop-div-2').offset().top }, 750);
+        $('html, body').delay(1250).animate({scrollTop: $('#stop-div-4').offset().top }, 1000);
         $('html, body').delay(1250).animate({scrollTop: $('#stop-div-3').offset().top }, 750);
 
     });
 
     $(".top").on('click', function (){ $('html, body').animate({ scrollTop: 0}, 2000); });
 
-    
+
 
     // can't figure out how to check if form is submitted
     // $("form").submit(function() {

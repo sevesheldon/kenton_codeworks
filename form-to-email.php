@@ -24,15 +24,15 @@ if(IsInjected($visitor_email))
 $email_from = 'sevesheldon@gmail.com';//<== update the email address
 $email_subject = "New Form submission";
 $email_body = "You have received a new message from the user $name.\n".
-    "Here is the message:\n $message".
+    "Here is the message:\n $message \n".
     
 $to = "sevesheldon@gmail.com";//<== update the email address
 $headers = "From: $email_from \r\n";
 $headers .= "Reply-To: $visitor_email \r\n";
 //Send the email!
 mail($to,$email_subject,$email_body,$headers);
-//done. redirect to thank-you page.
-header('Location: /#stop-div-5');
+//done. redirect to thank-you page. ***** Can i use JS here to slide down this div instead of this "jump cut"
+header('Location: /#thank-you');
 
 
 // Function to validate against any email injection attempts
