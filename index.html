@@ -42,6 +42,16 @@ a:hover {
     color: #e74c3c;
 }
 
+span {
+    transition: all 150ms ease-in;
+}
+
+span:hover {
+    cursor: pointer;
+    transition: all 150ms ease-in;
+    color: #e74c3c;  
+}
+
 * {
     font-family: 'proxima-nova', sans-serif;
     width: 100%;
@@ -68,21 +78,31 @@ h2 {
     font-size: 3em;
 }
 
-a .bottom, a .top {
+#down {
+    display: inline-block;
+    width: auto;
+}
+
+span .bottom, span .top {
   display: inline-block;
   border-radius: 50%;
   transition: all 150ms ease-in;
 }
 
-a:hover .bottom, a:hover .top {
+span.bottom:hover, span.top:hover {
   border: 0.5em solid #e74c3c;
   transition: all 150ms ease-in;
+  cursor: pointer;
+  background-color: #E74C3C;
 }
 
-a:hover .bottom:after, a:hover .top:after {
+
+/* CANT GET THIS TO WORK - SUPPOSED TO MAKE THE :AFTER ELEMENT ~UP & DOWN ARROW IN THIS CASE~ FADE WITH SURROUNDING CIRCLE */
+.bottom:after :hover, span:hover .top:after {
   border-top: 0.5em solid #e74c3c;
   border-right: 0.5em solid #e74c3c;
   transition: all 150ms ease-in;
+  cursor: pointer;
 }
 
 .bottom {
@@ -91,7 +111,7 @@ a:hover .bottom:after, a:hover .top:after {
   height: 4em;
   border: 0.5em solid black;
   border-radius: 50%;
-  margin-top: 1em;
+  /*margin-top: 1em;*/
   transition: all 150ms ease-in;
 }
 
@@ -243,6 +263,7 @@ input[type="submit"]:hover {
   width: 1%;
   height: 15px;
   background-color: black;
+  margin-left: 0;
 }
 
 
@@ -373,12 +394,12 @@ input[type="submit"]:hover {
     <div id="logo-text" class="text-class" style="width: 100%">
         
         <h1>Kenton</h1> 
-        <h1>Codeworks</h1>
+        <h1 style="margin-bottom: 25px;">Codeworks</h1>
 
-        <div id="down">
-            <a href="#" onclick="move(); siteScroll();">
-              <span class="bottom"></span>
-            </a>
+        <div id="down" onclick="move(); siteScroll();">
+<!--             <a href="#" >
+ -->              <span class="bottom"></span>
+<!--             </a> -->
         </div>
 
     </div>
@@ -492,9 +513,9 @@ input[type="submit"]:hover {
     <div id="footer">
         
         <div>
-            <a href="#">
-                <span class="top"></span>
-            </a>
+<!--             <a href="#">
+ -->                <span class="top"></span>
+<!--             </a> -->
         </div>
 
         <div style="text-align: center">
